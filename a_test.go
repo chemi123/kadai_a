@@ -27,6 +27,13 @@ func Test_canDefeatAllEnemies(t *testing.T) {
 			wantEnemyDefeatedNum: sum([]int{1, 2, 3, 4, 5, 6}),
 			wantDefeatAllEnemies: true,
 		},
+		{
+			name:                 "Defeat all enemies without special",
+			enemyList:            []int{1, 2, 3, 4, 5},
+			specialLimit:         0,
+			wantEnemyDefeatedNum: sum([]int{1, 2, 3, 4, 5}),
+			wantDefeatAllEnemies: true,
+		},
 	}
 	for _, tc := range testCases {
 		enemyDefeatedNum, defeatAllEnemies := canDefeatAllEnemies(tc.enemyList, tc.specialLimit)
