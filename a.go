@@ -2,13 +2,24 @@ package main
 
 import (
 	"bufio"
+	"fmt"
 	"os"
 	"strconv"
 	"strings"
 )
 
 func canDefeatAllEnemies(enemyList []int, specialLimit int) (int, bool) {
-	return 0, false
+	var defeatNum int
+	for _, enemyNum := range enemyList {
+		if enemyNum > 5 {
+			if specialLimit == 0 {
+				return defeatNum, false
+			}
+			specialLimit--
+		}
+		defeatNum += enemyNum
+	}
+	return defeatNum, true
 }
 
 func main() {
@@ -28,5 +39,9 @@ func main() {
 			enemyNum, _ := strconv.Atoi(enemyNumStr)
 			enemyList = append(enemyList, enemyNum)
 		}
+		enemyDefeatedNum, defeatAllEnemies := canDefeatAllEnemies(enemyList, specialLimit)
+
+		// "true, 35"などのように出力される。例では"True, 35"だが分かれば良いと思うのでここはそのままにする
+		fmt.Println(defeatAllEnemies, enemyDefeatedNum)
 	}
 }
