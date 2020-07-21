@@ -22,6 +22,11 @@ func main() {
 		specialLimit, _ := strconv.Atoi(strings.TrimSpace(scanner.Text()))
 
 		scanner.Scan()
-		enemyList := strings.Split(scanner.Text(), " ")
+		enemyStrList := strings.Split(scanner.Text(), " ")
+		enemyList := make([]int, 0, len(enemyStrList))
+		for _, enemyNumStr := range enemyStrList {
+			enemyNum, _ := strconv.Atoi(enemyNumStr)
+			enemyList = append(enemyList, enemyNum)
+		}
 	}
 }
