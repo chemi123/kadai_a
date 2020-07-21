@@ -4,6 +4,14 @@ import (
 	"testing"
 )
 
+func sum(nums []int) int {
+	var s int
+	for _, num := range nums {
+		s += num
+	}
+	return s
+}
+
 func Test_canDefeatAllEnemies(t *testing.T) {
 	testCases := []struct {
 		name                 string
@@ -11,7 +19,15 @@ func Test_canDefeatAllEnemies(t *testing.T) {
 		specialLimit         int
 		wantEnemyDefeatedNum int
 		wantDefeatAllEnemies bool
-	}{}
+	}{
+		{
+			name:                 "Defeat all enemies",
+			enemyList:            []int{1, 2, 3, 4, 5, 6},
+			specialLimit:         3,
+			wantEnemyDefeatedNum: sum([]int{1, 2, 3, 4, 5, 6}),
+			wantDefeatAllEnemies: true,
+		},
+	}
 	for _, tc := range testCases {
 		enemyDefeatedNum, defeatAllEnemies := canDefeatAllEnemies(tc.enemyList, tc.specialLimit)
 		if enemyDefeatedNum != tc.wantEnemyDefeatedNum || defeatAllEnemies != tc.wantDefeatAllEnemies {
