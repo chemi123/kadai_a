@@ -1,4 +1,9 @@
 import sys
+import random
+
+# 特にデータセットに制限がなかったため、適当そうな値に設定
+MAX_ENEMY_NUM = 20
+MAX_ENEMY_LIST_SIZE = 20
 
 if __name__ == "__main__":
     if len(sys.argv) != 2:
@@ -11,3 +16,9 @@ if __name__ == "__main__":
     
     dataset_num = int(sys.argv[1])
     print(dataset_num)
+    for i in range(dataset_num):
+        enemy_list_size = random.randint(1, MAX_ENEMY_LIST_SIZE)
+        special_limit = random.randint(1, enemy_list_size)
+        enemy_list = [random.randint(1, MAX_ENEMY_NUM) for i in range(enemy_list_size)]
+        print(special_limit)
+        print(enemy_list)
