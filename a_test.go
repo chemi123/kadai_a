@@ -1,12 +1,20 @@
-package main_test
+package main
 
 import (
-	"fmt"
 	"testing"
 )
 
 func Test_canDefeatAllEnemies(t *testing.T) {
 	testCases := []struct {
+		enemyList            []int
+		specialLimit         int
+		wantEnemyDefeatedNum int
+		wantDefeatAllEnemies bool
 	}{}
-	fmt.Println(testCases)
+	for _, tc := range testCases {
+		enemyDefeatedNum, defeatAllEnemies := canDefeatAllEnemies(tc.enemyList, tc.specialLimit)
+		if enemyDefeatedNum != tc.wantEnemyDefeatedNum || defeatAllEnemies != tc.wantDefeatAllEnemies {
+			t.Fatalf("")
+		}
+	}
 }
