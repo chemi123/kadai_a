@@ -6,6 +6,7 @@ import (
 
 func Test_canDefeatAllEnemies(t *testing.T) {
 	testCases := []struct {
+		name                 string
 		enemyList            []int
 		specialLimit         int
 		wantEnemyDefeatedNum int
