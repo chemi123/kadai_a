@@ -21,4 +21,8 @@ if __name__ == "__main__":
         special_limit = random.randint(1, enemy_list_size)
         enemy_list = [random.randint(1, MAX_ENEMY_NUM) for i in range(enemy_list_size)]
         print(special_limit)
-        print(enemy_list)
+        for i, enemy_num in enumerate(enemy_list):
+            if i == len(enemy_list) - 1:
+                print(enemy_num)
+            else:
+                print(enemy_num, end=" ")
